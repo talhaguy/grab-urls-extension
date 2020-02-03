@@ -1,7 +1,8 @@
-const queryInfo = {}
+import { getData } from "./tab"
 
-const callback = tabs => {
-    document.getElementById("output").innerHTML = tabs[0].url
-}
-
-chrome.tabs.query(queryInfo, callback)
+getData(chrome.tabs.query).then(tabDataList => {
+    tabDataList.forEach(tabData => {
+        document.getElementById("output").innerHTML +=
+            tabData.title + "<br>" + tabData.url + "<br><br>"
+    })
+})
