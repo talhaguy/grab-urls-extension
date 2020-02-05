@@ -8,7 +8,7 @@
         "build:files": "cp ./src/manifest.json ./dist/",
         "build:html": "cp ./src/index.html ./dist/",
         "build:imgs": "cp ./src/images/icon*.png ./dist/",
-        "build:jsAndCss": "parcel build src/scripts/index.js --out-dir dist --out-file scripts.js",
+        "build:jsAndCss": "parcel build src/scripts/index.js --out-dir dist --out-file bundle.js",
         "build": "npm run clean; mkdir dist && npm run build:files && npm run build:imgs && npm run build:html && npm run build:jsAndCss",
         "test": "jest"
     },

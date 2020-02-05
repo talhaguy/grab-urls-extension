@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="ie=edge" http-equiv="X-UA-Compatible">
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="ie=edge" http-equiv="X-UA-Compatible" />
         <title>Grab Urls Extension</title>
-        <link href="styles.css" rel="stylesheet">
+        <link href="bundle.css" rel="stylesheet" />
     </head>
     <body>
-        <h1>Grab URLs</h1>
+        <main class="container--alpha">
+            <div class="container--beta">
+                <form id="form">
+                    <div class="form-line-item">
+                        <input
+                            id="grab-title"
+                            name="grab-title"
+                            type="checkbox"
+                        />
+                        <label for="grab-title">Grab titles with URLs</label>
+                    </div>
+                    <div class="form-line-item">
+                        <button class="button" type="submit">Grab URLs</button>
+                    </div>
+                </form>
 
-        <form id="form">
-            <div>
-                <input id="grab-title" name="grab-title" type="checkbox">
-                <label for="grab-title">Grab titles with URLs</label>
+                <textarea
+                    id="output"
+                    class="textarea form-line-item"
+                ></textarea>
+
+                <div class="form-line-item mar-b--0">
+                    <button id="copy-urls" class="button">Copy URLs</button>
+                </div>
             </div>
-            <div>
-                <button type="submit">Grab URLs</button>
-            </div>
-        </form>
-
-        <textarea id="output"></textarea>
-
-        <div>
-            <button id="copy-urls">Copy URLs</button>
-        </div>
+        </main>
 
         <!-- DEBUG -->
         <h2>DEBUG:</h2>
         <div id="debug"></div>
 
-        <script src="scripts.js"></script>
+        <script src="bundle.js"></script>
     </body>
 </html>
