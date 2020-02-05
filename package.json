@@ -8,9 +8,8 @@
         "build:files": "cp ./src/manifest.json ./dist/",
         "build:html": "cp ./src/index.html ./dist/",
         "build:imgs": "cp ./src/images/icon*.png ./dist/",
-        "build:css": "cp ./src/styles/styles.css ./dist/",
-        "build:js": "parcel build src/scripts/index.js --out-dir dist --out-file scripts.js",
-        "build": "npm run clean; mkdir dist && npm run build:files && npm run build:imgs && npm run build:html && npm run build:css && npm run build:js",
+        "build:jsAndCss": "parcel build src/scripts/index.js --out-dir dist --out-file scripts.js",
+        "build": "npm run clean; mkdir dist && npm run build:files && npm run build:imgs && npm run build:html && npm run build:jsAndCss",
         "test": "jest"
     },
     "author": "Muhammad Talha",
@@ -21,6 +20,7 @@
         "babel-jest": "^25.1.0",
         "jest": "^25.1.0",
         "parcel-bundler": "^1.12.4",
-        "prettier": "1.19.1"
+        "prettier": "1.19.1",
+        "sass": "^1.25.0"
     }
 }
