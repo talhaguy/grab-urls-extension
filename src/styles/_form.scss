@@ -6,6 +6,40 @@
     width: 100%;
     border: 0;
     background-color: $color-gamma;
+    font-size: 1.17rem;
+    font-weight: bold;
+    color: $color-zeta;
+    letter-spacing: 1px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    &:focus {
+        border: 1px solid $color-epsilon;
+        padding: 9px 10px;
+        outline: 0;
+    }
+
+    &:hover {
+        background-color: lighten($color-gamma, 3%);
+    }
+
+    &:active {
+        box-shadow: none;
+        background-color: darken($color-gamma, 3%);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        outline: 0;
+        background-color: $color-gamma;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
 }
 
 .textarea {
