@@ -1,47 +1,122 @@
 import { showMessage, hide } from "./message"
 
 describe("message", () => {
-    const element = {
-        innerText: "",
-        style: {
-            display: "",
-        },
-    }
+    let element
+    let state
 
-    afterEach(() => {
-        element.innerText = ""
-        element.style.display = ""
+    beforeEach(() => {
+        element = {
+            innerText: "",
+            style: {
+                display: "",
+            },
+        }
+        state = {
+            timeoutId: null,
+        }
     })
 
     describe("showMessage()", () => {
         const message = "This is a message!"
-        let windowSetTimeout = jest.fn()
-        let hideFunc = jest.fn()
-        hideFunc.mockName("hideFunc")
+        let windowSetTimeout
+        let windowClearTimeout
+        let hideFunc
 
-        afterEach(() => {
-            windowSetTimeout = jest.fn()
+        beforeEach(() => {
+            windowSetTimeout = jest.fn().mockReturnValue(123)
+            windowClearTimeout = jest.fn()
             hideFunc = jest.fn()
-            hideFunc.mockName("hideFunc")
         })
 
         it("should set the provided message in element", () => {
-            showMessage(element, windowSetTimeout, hideFunc, message)
+            showMessage(
+                element,
+                windowSetTimeout,
+                windowClearTimeout,
+                hideFunc,
+                state,
+                message
+            )
             expect(element.innerText).toBe(message)
         })
 
         it("should show the message element", () => {
-            showMessage(element, windowSetTimeout, hideFunc, message)
+            showMessage(
+                element,
+                windowSetTimeout,
+                windowClearTimeout,
+                hideFunc,
+                state,
+                message
+            )
             expect(element.style.display).toBe("block")
         })
 
         it("should hide the message after 3 seconds", () => {
-            showMessage(element, windowSetTimeout, hideFunc, message)
-            expect(windowSetTimeout.mock.calls.length).toBe(1)
-            expect(windowSetTimeout.mock.calls[0][0].getMockName()).toBe(
-                hideFunc.getMockName()
+            showMessage(
+                element,
+                windowSetTimeout,
+                windowClearTimeout,
+                hideFunc,
+                state,
+                message
             )
+            expect(windowSetTimeout.mock.calls.length).toBe(1)
+            const setTimeoutCallback = windowSetTimeout.mock.calls[0][0]
             expect(windowSetTimeout.mock.calls[0][1]).toBe(3000)
+            expect(hideFunc.mock.calls.length).toBe(0)
+            setTimeoutCallback()
+            expect(hideFunc.mock.calls.length).toBe(1)
+        })
+
+        it("should store the timeout id for hiding the message in the state", () => {
+            expect(state.timeoutId).toBeNull()
+            showMessage(
+                element,
+                windowSetTimeout,
+                windowClearTimeout,
+                hideFunc,
+                state,
+                message
+            )
+            expect(state.timeoutId).not.toBeNull()
+        })
+
+        it("should set the timeout id for hiding the message to null in the state after timeout callback runs", () => {
+            expect(state.timeoutId).toBeNull()
+            showMessage(
+                element,
+                windowSetTimeout,
+                windowClearTimeout,
+                hideFunc,
+                state,
+                message
+            )
+            const timeoutCallback = windowSetTimeout.mock.calls[0][0]
+            timeoutCallback()
+            expect(state.timeoutId).toBeNull()
+        })
+
+        it("should not have more than one active timeout at a time", () => {
+            showMessage(
+                element,
+                windowSetTimeout,
+                windowClearTimeout,
+                hideFunc,
+                state,
+                message
+            )
+            const timeoutIdOne = state.timeoutId
+            showMessage(
+                element,
+                windowSetTimeout,
+                windowClearTimeout,
+                hideFunc,
+                state,
+                message
+            )
+            expect(windowClearTimeout.mock.calls.length).toBe(1)
+            expect(windowClearTimeout.mock.calls[0][0]).toBe(timeoutIdOne)
         })
     })
 
