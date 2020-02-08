@@ -1,13 +1,25 @@
 import { showMessage as _showMessage, hide } from "./message"
 import { DomSelectors } from "../constants"
 
+const state = {
+    timeoutId: null,
+}
 const messageElement = document.querySelector(DomSelectors.Message)
 
 const hideFunc = (element => () => hide(element))(messageElement)
 
-export const showMessage = ((element, setTimeoutFunc, hide) => message =>
-    _showMessage(element, setTimeoutFunc, hide, message))(
-    messageElement,
-    window.setTimeout,
-    hideFunc
-)
+export const showMessage = ((
+    element,
+    windowSetTimeout,
+    windowClearTimeout,
+    hide,
+    state
+) => message =>
+    _showMessage(
+        element,
+        windowSetTimeout,
+        windowClearTimeout,
+        hide,
+        state,
+        message
+    ))(messageElement, window.setTimeout, window.clearTimeout, hideFunc, state)

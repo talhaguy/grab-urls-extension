@@ -1,7 +1,20 @@
-export const showMessage = (element, windowSetTimeout, hideFunc, message) => {
+export const showMessage = (
+    element,
+    windowSetTimeout,
+    windowClearTimeout,
+    hideFunc,
+    state,
+    message
+) => {
     element.innerText = message
     element.style.display = "block"
-    windowSetTimeout(hideFunc, 3000)
+    if (state.timeoutId) {
+        windowClearTimeout(state.timeoutId)
+    }
+    state.timeoutId = windowSetTimeout(() => {
+        hideFunc()
+        state.timeoutId = null
+    }, 3000)
 }
 
 export const hide = element => {
