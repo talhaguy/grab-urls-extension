@@ -3,4 +3,5 @@ export const DomSelectors = {
     GrabtTitleCheckbox: "#grab-title",
     Output: "#output",
     CopyButton: "#copy-urls",
+    Message: "#message",
 }

@@ -1,6 +1,7 @@
 import { DomSelectors } from "./constants"
 import { getData } from "./tab"
 import { formatTabData } from "./format"
+import { showMessage } from "./message"
 import "../styles/styles.scss"
 
 const outputTextArea = document.querySelector(DomSelectors.Output)
@@ -22,4 +23,5 @@ document.querySelector(DomSelectors.Form).addEventListener("submit", event => {
 copyButton.addEventListener("click", () => {
     outputTextArea.select()
     document.execCommand("copy")
+    showMessage("Copied Text")
 })
