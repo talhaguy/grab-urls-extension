@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 4.4979162 4.4979167"
+   height="4.4979167mm"
+   width="4.4979162mm">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="display:inline"
+     transform="translate(-95.30242,-135.24392)"
+     id="layer1">
+    <rect
+       ry="0.79374999"
+       rx="0.79374999"
+       y="135.64079"
+       x="95.699295"
+       height="3.7041667"
+       width="3.7041662"
+       id="rect815"
+       style="opacity:1;fill:#e0d68a;fill-opacity:1;stroke:#8e443d;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  </g>
+  <g
+     transform="translate(-95.30242,-135.24392)"
+     style="display:inline"
+     id="g2076">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.79374999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2074"
+       width="3.7041662"
+       height="3.7041667"
+       x="95.699295"
+       y="135.64079"
+       rx="0.79374999"
+       ry="0.79374999" />
+  </g>
+  <g
+     style="display:inline"
+     transform="translate(-95.30242,-135.24392)"
+     id="layer2">
+    <path
+       id="path839"
+       d="m 96.601335,137.54552 0.59778,0.575 1.302307,-1.25267"
+       style="fill:none;stroke:#8e443d;stroke-width:0.5291667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

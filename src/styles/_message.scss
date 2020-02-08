@@ -1,0 +1,10 @@
+.message {
+    padding: 20px;
+    background: $color-alpha;
+    color: $color-zeta;
+    font-size: 0.8rem;
+    text-align: center;
+
+    // hide by default
+    display: none;
+}
