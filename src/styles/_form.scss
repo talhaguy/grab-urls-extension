@@ -1,0 +1,116 @@
+$focus-outline-width: 3px;
+
+.form-line-item {
+    margin-bottom: 20px;
+}
+
+.button {
+    width: 100%;
+    border: 0;
+    background-color: $color-gamma;
+    font-size: 1.17rem;
+    font-weight: bold;
+    color: $color-zeta;
+    letter-spacing: 1px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    &:focus {
+        border: 1px solid $color-epsilon;
+        border: $focus-outline-width solid $color-zeta;
+        padding: (10px - $focus-outline-width) 10px;
+        outline: 0;
+    }
+
+    &:hover {
+        background-color: lighten($color-gamma, 3%);
+    }
+
+    &:active {
+        box-shadow: none;
+        background-color: darken($color-gamma, 3%);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        outline: 0;
+        background-color: $color-gamma;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}
+
+.textarea {
+    background-color: $color-epsilon;
+    color: $color-alpha;
+    width: 100%;
+    height: 200px;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid $color-gamma;
+    font: 1rem $font-alpha;
+    padding: 10px;
+
+    &:focus {
+        border: $focus-outline-width solid $color-zeta;
+        padding: (11px - $focus-outline-width);
+        outline: 0;
+    }
+}
+
+.checkbox {
+    position: relative;
+
+    &__box {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    &__check,
+    &__focus-border {
+        opacity: 0;
+    }
+
+    &__label {
+        &__text {
+            display: inline-block;
+            vertical-align: middle;
+            color: $color-zeta;
+            font-size: 1rem;
+            color: $color-epsilon;
+        }
+
+        &:focus {
+            border: $focus-outline-width solid $color-zeta;
+        }
+    }
+
+    input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &:focus {
+            & + .checkbox__label {
+                .checkbox__focus-border {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &:checked {
+            & + .checkbox__label {
+                .checkbox__check {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

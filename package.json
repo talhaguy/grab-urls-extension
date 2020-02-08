@@ -1,11 +1,27 @@
 {
-  "name": "grab-urls-extension",
-  "version": "1.0.0",
-  "description": "Chrome extension that grabs URLs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Muhammad Talha",
-  "license": "ISC"
+    "name": "grab-urls-extension",
+    "version": "1.0.0",
+    "description": "Chrome extension that grabs URLs",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rm -rf ./dist",
+        "build:files": "cp ./src/manifest.json ./dist/",
+        "build:html": "cp ./src/index.html ./dist/",
+        "build:imgs": "cp ./src/images/icon*.png ./dist/",
+        "build:jsAndCss": "parcel build src/scripts/index.js --out-dir dist --out-file bundle.js",
+        "build": "npm run clean; mkdir dist && npm run build:files && npm run build:imgs && npm run build:html && npm run build:jsAndCss",
+        "watch:jsAndCss": "parcel watch src/scripts/index.js --out-dir dist --out-file bundle.js",
+        "test": "jest"
+    },
+    "author": "Muhammad Talha",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "babel-jest": "^25.1.0",
+        "jest": "^25.1.0",
+        "parcel-bundler": "^1.12.4",
+        "prettier": "1.19.1",
+        "sass": "^1.25.0"
+    }
 }
